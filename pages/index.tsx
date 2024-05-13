@@ -7,7 +7,9 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title></title>
+        {/* I thought this would work but I'm runnning out of time now */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <title>Dashboard</title>
       </Head>
       <main>
         <Box textAlign={"center"} my={8}>

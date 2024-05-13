@@ -15,6 +15,7 @@ const PostsContainer = styled("div")({
 });
 
 const Feed: NextPage = () => {
+  // Common pattern for loading endpoint data
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<Post[] | undefined>(undefined);
 

@@ -1,3 +1,7 @@
+// Depending on the number of endpoints and size of the
+// code base I would split up the type definitions into
+// a seperate file.
+
 export interface Post {
   userId: number;
   id: number;
@@ -28,6 +32,8 @@ export interface Photo {
 }
 
 const baseUrl = "https://jsonplaceholder.typicode.com";
+
+// Again small code base so these are all in one place
 
 export async function getPosts() {
   const res = await fetch(`${baseUrl}/posts`);
