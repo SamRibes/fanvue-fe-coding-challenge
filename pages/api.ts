@@ -13,6 +13,20 @@ export interface Comment {
   body: string;
 }
 
+export interface Album {
+  userId: number;
+  id: number;
+  title: string;
+}
+
+export interface Photo {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+
 const baseUrl = "https://jsonplaceholder.typicode.com";
 
 export async function getPosts() {
@@ -25,4 +39,16 @@ export async function getComments(postId: number) {
   const res = await fetch(`${baseUrl}/posts/${postId}/comments`);
   const data = await res.json();
   return data as Comment[];
+}
+
+export async function getAlbums() {
+  const res = await fetch(`${baseUrl}/albums`);
+  const data = await res.json();
+  return data as Album[];
+}
+
+export async function getPhotos(albumId: number) {
+  const res = await fetch(`${baseUrl}/albums/${albumId}/photos`);
+  const data = await res.json();
+  return data as Photo[];
 }
