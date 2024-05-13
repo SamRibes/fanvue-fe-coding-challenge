@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { CircularProgress } from "@mui/material";
 import { getPosts, Post } from "./api";
 import PostCard from "../components/Post";
+import Head from "next/head";
 
 const PostsContainer = styled("div")({
   display: "flex",
@@ -28,14 +29,19 @@ const Feed: NextPage = () => {
   }, []);
 
   return (
-    <PostsContainer>
-      {loading && <CircularProgress />}
-      {!loading && posts?.length === 0 && <p>No posts found</p>}
-      {!loading &&
-        posts?.map((post) => {
-          return <PostCard key={post.id} post={post} />;
-        })}
-    </PostsContainer>
+    <>
+      <Head>
+        <title>Feed</title>
+      </Head>
+      <PostsContainer>
+        {loading && <CircularProgress />}
+        {!loading && posts?.length === 0 && <p>No posts found</p>}
+        {!loading &&
+          posts?.map((post) => {
+            return <PostCard key={post.id} post={post} />;
+          })}
+      </PostsContainer>
+    </>
   );
 };
 
